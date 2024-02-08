@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SecondScreen(navigateToFirstScreen:()->Unit ) {
+fun SecondScreen(name : String, navigateToFirstScreen:(String)->Unit ) {
 
     Column (
         modifier = Modifier
@@ -31,9 +31,9 @@ fun SecondScreen(navigateToFirstScreen:()->Unit ) {
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Text("This is the Second screen", fontSize = 24.sp)
-        Text("Welcome", fontSize = 24.sp)
+        Text("Welcome $name", fontSize = 24.sp)
         Button(onClick = {
-      navigateToFirstScreen()
+      navigateToFirstScreen(name)
         }) {
             Text("Go to First screen")
         }
@@ -42,7 +42,7 @@ fun SecondScreen(navigateToFirstScreen:()->Unit ) {
 @Preview(showBackground = true)
 @Composable
 fun ScreenPreview() {
-    SecondScreen({})
+    SecondScreen("Dennis",{})
 }
 
 
